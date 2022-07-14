@@ -56,16 +56,11 @@ class HomePage extends StatelessWidget {
                   fontWeight: FontWeight.bold
                 ),
               ),
-              const SizedBox(height: 20,),
-              ActivityCard(activity: activities[0]!),
-              const SizedBox(height: 20,),
+              const SizedBox(height: 10,),
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   children: <Widget>[...buildActivityCards(context)],
-                  /*children: [
-                    buildActivityCards(context),
-                  ],*/
                 ),
               ),
             ],
