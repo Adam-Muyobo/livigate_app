@@ -62,9 +62,10 @@ class HomePage extends StatelessWidget {
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
-                  children: [
+                  children: <Widget>[...buildActivityCards(context)],
+                  /*children: [
                     buildActivityCards(context),
-                  ],
+                  ],*/
                 ),
               ),
             ],
