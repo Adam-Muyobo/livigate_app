@@ -1,19 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:my_app/models/activity.dart';
-import 'package:my_app/pages/model_screens/activity_screen.dart';
+import 'package:my_app/models/accomodation.dart';
+import 'package:my_app/pages/model_screens/accommodation_screen.dart';
 
-class ActivityCard extends StatelessWidget {
+class AccommodationCard extends StatelessWidget {
+  final Accommodation accommodation;
+  const AccommodationCard({Key? key, required this.accommodation}) : super(key: key);
 
-  final Activity activity;
-
-  const ActivityCard({Key? key, required this.activity}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {
-        Navigator.pushNamed(context, ActivityScreen.routeName, arguments: activity);
-        print(activity.name);
+      onTap: (){
+        Navigator.pushNamed(context, AccommodationScreen.routeName, arguments: accommodation);
       },
       child: Container(
         padding: const EdgeInsets.all(10),
@@ -25,7 +23,7 @@ class ActivityCard extends StatelessWidget {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
                 image: DecorationImage(
-                  image: NetworkImage(activity.imageUrl!),
+                  image: NetworkImage(accommodation.imageUrl!),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -40,7 +38,7 @@ class ActivityCard extends StatelessWidget {
                   color: const Color.fromARGB(100, 22, 44, 33),
                 ),
                 child: Text(
-                  activity.name!,
+                  accommodation.lodgeName!,
                   style: const TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,

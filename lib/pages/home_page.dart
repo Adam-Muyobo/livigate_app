@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:my_app/models/accomodation.dart';
 import 'package:my_app/models/activity.dart';
+import 'package:my_app/widgets/accommodation_card.dart';
 import 'package:my_app/widgets/activity_card.dart';
 
 
@@ -8,7 +10,6 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<Activity>? activities = Activity.getActivities();
     return Scaffold(
       drawer: Drawer(
         backgroundColor: Colors.grey,
@@ -63,6 +64,21 @@ class HomePage extends StatelessWidget {
                   children: <Widget>[...buildActivityCards(context)],
                 ),
               ),
+              const SizedBox(height: 10,),
+              const Text(
+                'Accomodation',
+                style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold
+                ),
+              ),
+              const SizedBox(height: 10,),
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: <Widget>[...buildAccommodationCards(context)],
+                ),
+              ),
             ],
           ),
         ),
@@ -95,7 +111,10 @@ class HomePage extends StatelessWidget {
           ListTile(
             title: const Text('Log Out!'),
             leading: const Icon(Icons.logout),
-            onTap: () {print('Bye');}
+            onTap: () {
+              Navigator.pushNamed(context, '/');
+              print('Bye');
+            }
           ),
         ],
       ),
@@ -124,6 +143,17 @@ class HomePage extends StatelessWidget {
     widgets.add(const SizedBox(height: 10,));
     for(int i = 0; i < activities.length; i++){
       widgets.add(ActivityCard(activity: activities[i]));
+      widgets.add(const SizedBox(height: 10,));
+    }
+    return widgets;
+  }
+
+  buildAccommodationCards(BuildContext context) {
+    List<Accommodation>? lodges = Accommodation.getAccommodation();
+    List<Widget> widgets = [];
+    widgets.add(const SizedBox(height: 10,));
+    for(int i = 0; i < lodges.length; i++){
+      widgets.add(AccommodationCard(accommodation: lodges[i]));
       widgets.add(const SizedBox(height: 10,));
     }
     return widgets;
