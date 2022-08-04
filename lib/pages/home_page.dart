@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:my_app/models/accomodation.dart';
 import 'package:my_app/models/activity.dart';
 import 'package:my_app/widgets/accommodation_card.dart';
@@ -11,6 +12,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.orangeAccent[100],
       drawer: Drawer(
         backgroundColor: Colors.grey,
         child: SingleChildScrollView(
@@ -25,21 +27,17 @@ class HomePage extends StatelessWidget {
         ),
       ),
       appBar: AppBar(
-        backgroundColor: Colors.grey[800],
+        foregroundColor: Colors.orange,
+        backgroundColor: Colors.orangeAccent[100],
         title: const Text('home'),
         centerTitle: true,
+        elevation: 0.0,
         actions: [
           IconButton(
               onPressed: (){
                 print('Notifications');
               },
               icon: const Icon(Icons.notifications)
-          ),
-          IconButton(
-              onPressed: (){
-                print('Settings');
-              },
-              icon: const Icon(Icons.settings)
           ),
         ],
       ),
@@ -54,6 +52,7 @@ class HomePage extends StatelessWidget {
                 'Activities',
                 style: TextStyle(
                   fontSize: 20,
+                  color: Colors.orange,
                   fontWeight: FontWeight.bold
                 ),
               ),
@@ -69,6 +68,7 @@ class HomePage extends StatelessWidget {
                 'Accomodation',
                 style: TextStyle(
                     fontSize: 20,
+                    color: Colors.orange,
                     fontWeight: FontWeight.bold
                 ),
               ),
@@ -80,6 +80,38 @@ class HomePage extends StatelessWidget {
                 ),
               ),
             ],
+          ),
+        ),
+      ),
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.all(12.0),
+        child: SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Container(
+            decoration: BoxDecoration(
+                color: Colors.orange,
+                borderRadius: BorderRadius.circular(50)
+            ),
+            child: GNav(
+              color: Colors.orangeAccent[100],
+              activeColor: Colors.orangeAccent[100],
+              tabBackgroundColor: Colors.deepOrange,
+              gap: 8,
+              tabs: const [
+                GButton(icon: Icons.home,
+                  text: 'Home',
+                ),
+                GButton(icon: Icons.location_on,
+                text: 'Map',
+                ),
+                GButton(icon: Icons.search,
+                text: 'Search',
+                ),
+                GButton(icon: Icons.settings,
+                  text: 'Settings',
+                ),
+              ],
+            ),
           ),
         ),
       ),
