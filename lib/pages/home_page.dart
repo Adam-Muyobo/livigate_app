@@ -1,10 +1,10 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:my_app/models/accomodation.dart';
 import 'package:my_app/models/activity.dart';
+import 'package:my_app/pages/model_screens/event_screens.dart';
 import 'package:my_app/widgets/accommodation_card.dart';
 import 'package:my_app/widgets/activity_card.dart';
-
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -14,7 +14,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.orangeAccent[100],
       drawer: Drawer(
-        backgroundColor: Colors.grey,
+        backgroundColor: Colors.orangeAccent[200],
         child: SingleChildScrollView(
           child: SafeArea(
             child: Column(
@@ -35,7 +35,9 @@ class HomePage extends StatelessWidget {
         actions: [
           IconButton(
               onPressed: (){
-                print('Notifications');
+                if (kDebugMode) {
+                  print('Notifications');
+                }
               },
               icon: const Icon(Icons.notifications)
           ),
@@ -83,38 +85,6 @@ class HomePage extends StatelessWidget {
           ),
         ),
       ),
-      bottomNavigationBar: Padding(
-        padding: const EdgeInsets.all(12.0),
-        child: SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          child: Container(
-            decoration: BoxDecoration(
-                color: Colors.orange,
-                borderRadius: BorderRadius.circular(50)
-            ),
-            child: GNav(
-              color: Colors.orangeAccent[100],
-              activeColor: Colors.orangeAccent[100],
-              tabBackgroundColor: Colors.deepOrange,
-              gap: 8,
-              tabs: const [
-                GButton(icon: Icons.home,
-                  text: 'Home',
-                ),
-                GButton(icon: Icons.location_on,
-                text: 'Map',
-                ),
-                GButton(icon: Icons.search,
-                text: 'Search',
-                ),
-                GButton(icon: Icons.settings,
-                  text: 'Settings',
-                ),
-              ],
-            ),
-          ),
-        ),
-      ),
     );
   }
 
@@ -122,22 +92,31 @@ class HomePage extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(20),
       child: Wrap(
-        runSpacing: 4.0,
+        runSpacing: 2.0,
         children: [
           ListTile(
             title: const Text('Home'),
             leading: const Icon(Icons.home),
-            onTap: () {print('Go Home');}
+            onTap: () {if (kDebugMode) {
+              print('Go Home');
+            }}
           ),
           ListTile(
             title: const Text('Reservations'),
-            leading: const Icon(Icons.home),
-            onTap: () {print('Reservations');}
+            leading: const Icon(Icons.note_add_outlined),
+            onTap: () {if (kDebugMode) {
+              print('Reservations');
+            }}
           ),
           ListTile(
-            title: const Text('Activities'),
-            leading: const Icon(Icons.home),
-            onTap: () {print('Activities');}
+            title: const Text('Events'),
+            leading: const Icon(Icons.calendar_month),
+            onTap: () {
+              Navigator.pushNamed(context, EventScreens.routeName);
+              if (kDebugMode) {
+                print('Activities');
+              }
+            }
           ),
           const Divider(color: Colors.black),
           ListTile(
@@ -145,7 +124,9 @@ class HomePage extends StatelessWidget {
             leading: const Icon(Icons.logout),
             onTap: () {
               Navigator.pushNamed(context, '/');
-              print('Bye');
+              if (kDebugMode) {
+                print('Bye');
+              }
             }
           ),
         ],

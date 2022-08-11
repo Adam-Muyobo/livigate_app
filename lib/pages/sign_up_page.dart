@@ -108,7 +108,7 @@ class _SignUpState extends State<SignUp> {
                       controller: _lastNameController,
                       validator: (var value){
                         if(value!.isEmpty){
-                          return 'Enter last';
+                          return 'Enter last name.';
                         }else {
                           return null;
                         }

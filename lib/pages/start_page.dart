@@ -33,7 +33,7 @@ class _StartPageState extends State<StartPage> {
                   style: GoogleFonts.bebasNeue(
                     fontSize: 60,
                     fontWeight: FontWeight.bold,
-                    color: Colors.orange,
+                    color: Colors.black.withAlpha(150),
                   ),
               ),
             ),
@@ -41,12 +41,12 @@ class _StartPageState extends State<StartPage> {
             Center(
               child: Container(
                 padding: const EdgeInsets.all(8),
-                child: const Text(
+                child: Text(
                   'let us guide you through our lovely city',
-                  style: TextStyle(
+                  style: GoogleFonts.raleway(
                     fontSize: 20.0,
                     fontWeight: FontWeight.bold,
-                    color: Colors.orange,
+                    color: Colors.orange[710],
                   ),
                 ),
               ),

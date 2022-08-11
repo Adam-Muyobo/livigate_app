@@ -34,7 +34,7 @@ class _LogInState extends State<LogIn> {
       ),
       body: Center(
         child: SingleChildScrollView(
-
+          reverse: true,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -45,9 +45,9 @@ class _LogInState extends State<LogIn> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      'Welcome Back',
+                      'Welcome Back, We missed you.',
                       style: GoogleFonts.bebasNeue(
-                        fontSize: 50.0,
+                        fontSize: 38.0,
                         color: Colors.orange,
                         fontWeight: FontWeight.bold,
                       )
