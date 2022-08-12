@@ -5,6 +5,7 @@ class Events{
   String eventImage;
   String organisers;
 
+
   Events(this.eventName, this.location, this.description, this.eventImage,
       this.organisers, this.dateTime);
 

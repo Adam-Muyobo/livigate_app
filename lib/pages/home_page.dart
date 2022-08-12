@@ -2,7 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:my_app/models/accomodation.dart';
 import 'package:my_app/models/activity.dart';
-import 'package:my_app/pages/model_screens/event_screens.dart';
+import 'package:my_app/pages/event_screens.dart';
 import 'package:my_app/widgets/accommodation_card.dart';
 import 'package:my_app/widgets/activity_card.dart';
 

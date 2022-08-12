@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 
+import '../models/events.dart';
+import 'model_screens/event_screen.dart';
+
 class EventScreens extends StatefulWidget {
   const EventScreens({Key? key}) : super(key: key);
+
   static const routeName = '/EventScreens';
 
   @override
@@ -20,21 +24,17 @@ class _EventScreensState extends State<EventScreens> {
         elevation: 0.0,
       ),
       body: PageView(
-        children: [
-          Container(
-            color: Colors.orangeAccent[100],
-            child: const Center(child: Text('Coming Soon!!!')),
-          ),
-          Container(
-            color: Colors.orangeAccent[100],
-            child: const Center(child: Text('Coming Soon!!!')),
-          ),
-          Container(
-            color: Colors.orangeAccent[100],
-            child: const Center(child: Text('Coming Soon!!!')),
-          ),
-        ],
+        children: <Widget>[...buildEventScreens(context)],
       ),
     );
+  }
+
+  List<Widget> buildEventScreens(BuildContext context) {
+    List<Events>? events = Events.getEvents();
+    List<Widget> widgets = [];
+    for(int i = 0; i < events.length; i++){
+      widgets.add(EventScreen(events: events[i],));
+    }
+    return widgets;
   }
 }
