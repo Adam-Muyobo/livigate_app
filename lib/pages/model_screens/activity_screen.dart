@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:my_app/models/activity.dart';
+import 'package:my_app/widgets/common_button.dart';
 
 class ActivityScreen extends StatelessWidget {
 
@@ -55,35 +56,7 @@ class ActivityScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.all(12.0),
-                child: GestureDetector(
-                  onTap: (){
-                    if (kDebugMode) {
-                      print('Book Now!');
-                    }
-                  },
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: Colors.orange,
-                      borderRadius: BorderRadius.circular(8)
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Center(
-                        child: Text(
-                          'Book Now!',
-                          style: GoogleFonts.actor(
-                            color: Colors.orangeAccent[100],
-                            fontWeight: FontWeight.bold,
-                            fontSize: 25,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-              ),
+              CommonButton(text: "BookNow!", function: (){})
             ],
           ),
         ),

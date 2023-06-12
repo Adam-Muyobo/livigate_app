@@ -17,7 +17,11 @@ class _EventScreensState extends State<EventScreens> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Events'),
+        title: const Text('Events',
+          style: TextStyle(
+            color: Colors.orange
+          ),
+        ),
         centerTitle: true,
         foregroundColor: Colors.orange,
         backgroundColor: Colors.orangeAccent[100],

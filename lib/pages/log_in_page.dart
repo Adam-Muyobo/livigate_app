@@ -5,6 +5,8 @@ import 'package:google_fonts/google_fonts.dart';
 class LogIn extends StatefulWidget {
   const LogIn({Key? key}) : super(key: key);
 
+  static const routeName = '/login';
+
   @override
   State<LogIn> createState() => _LogInState();
 }
@@ -47,7 +49,7 @@ class _LogInState extends State<LogIn> {
                     Text(
                       'Welcome Back, We missed you.',
                       style: GoogleFonts.bebasNeue(
-                        fontSize: 38.0,
+                        fontSize: 26.0,
                         color: Colors.orange,
                         fontWeight: FontWeight.bold,
                       )

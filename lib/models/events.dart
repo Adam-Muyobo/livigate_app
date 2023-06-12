@@ -57,7 +57,7 @@ class Events{
         'Freshers Ball',
         'Mukuni Park',
         'Dijo media',
-        '',
+        'https://fixr-cdn.fixr.co/images/event/2022-08/f56de5372fab4fdeac0162954a610826.jpeg',
         'Cooking never got more competitive with this one invite your friends and family with their best dishes and various cuisines',
         '2022-08-30',
         ''
@@ -75,7 +75,7 @@ class Events{
         'Semester ShutDown',
         'Mukuni Park',
         'Dijo media',
-        '',
+        'https://www.duplex.cz/wp-content/uploads/2019/05/semester_shutdown_09.5_10.5.jpg',
         'Cooking never got more competitive with this one invite your friends and family with their best dishes and various cuisines',
         '2022-08-30',
         ''

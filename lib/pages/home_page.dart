@@ -2,12 +2,15 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:my_app/models/accomodation.dart';
 import 'package:my_app/models/activity.dart';
+import 'package:my_app/pages/app_settings.dart';
 import 'package:my_app/pages/event_screens.dart';
 import 'package:my_app/widgets/accommodation_card.dart';
 import 'package:my_app/widgets/activity_card.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
+
+  static const routeName = '/home';
 
   @override
   Widget build(BuildContext context) {
@@ -29,17 +32,21 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         foregroundColor: Colors.orange,
         backgroundColor: Colors.orangeAccent[100],
-        title: const Text('home'),
+        title: const Text(
+          'home',
+          style: TextStyle(
+            color: Colors.orange
+          ),
+        ),
         centerTitle: true,
         elevation: 0.0,
         actions: [
           IconButton(
               onPressed: (){
-                if (kDebugMode) {
-                  print('Notifications');
-                }
+                if (kDebugMode) {print('Settings');}
+                Navigator.pushNamed(context, SettingPage.routeName);
               },
-              icon: const Icon(Icons.notifications)
+              icon: const Icon(Icons.settings)
           ),
         ],
       ),

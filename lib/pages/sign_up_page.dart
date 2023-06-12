@@ -5,6 +5,8 @@ import 'package:google_fonts/google_fonts.dart';
 class SignUp extends StatefulWidget {
   const SignUp({Key? key}) : super(key: key);
 
+  static const routeName = '/signup';
+
   @override
   State<SignUp> createState() => _SignUpState();
 }
